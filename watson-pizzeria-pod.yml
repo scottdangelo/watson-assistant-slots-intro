@@ -41,8 +41,13 @@ spec:
               configMapKeyRef:
                 name: watson-pizzeria-config
                 key: workspace_id
-          - name: service_watson_conversation
+          - name: CONVERSATION_IAM_APIKEY
             valueFrom:
-              secretKeyRef:
-                name: binding-conversation-service-watson-pizzeria
-                key: binding
+              configMapKeyRef:
+                name: watson-pizzeria-config
+                key: conversation_iam_apikey
+          - name: CONVERSATION_URL
+            valueFrom:
+              configMapKeyRef:
+                name: watson-pizzeria-config
+                key: convesation_url
